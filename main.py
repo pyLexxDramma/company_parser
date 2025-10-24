@@ -23,14 +23,20 @@ def load_proxies(filepath="proxies.txt"):
 
 def setup_driver():
     options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
 
-    proxies = load_proxies()
-    if proxies:
-        proxy = proxies[0]
-        options.add_argument(f'--proxy-server={proxy}')
-        print(f"Using proxy: {proxy}")
+    # --- ИЗМЕНЕНИЕ ЗДЕСЬ ---
+    # Закомментируйте или удалите блок, связанный с загрузкой и применением прокси
+
+    # proxies = load_proxies()
+    # if proxies:
+    #     proxy = proxies[0] # Using the first proxy from the list
+    #     options.add_argument(f'--proxy-server={proxy}')
+    #     print(f"Using proxy: {proxy}")
+
+    # --- КОНЕЦ ИЗМЕНЕНИЯ ---
 
     script_dir = os.path.dirname(__file__)
     driver_path = os.path.join(script_dir, 'chromedriver.exe')
@@ -45,8 +51,8 @@ def setup_driver():
 
 
 def main():
-    company_name_input = "ООО Ромашка"
-    company_site_input = "example.com"
+    company_name_input = "Маяк"
+    company_site_input = "https://igevsk.magazinmayak.ru/"
     email_input = "test@example.com"
 
     driver = None

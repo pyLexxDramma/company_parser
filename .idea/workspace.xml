@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ec8d6b2-6a4e-4624-a4ae-454369140506" name="Changes" comment="Промежуточная настройка Selenium. Изменение фильтрации ссылок для парсинга.">
+    <list default="true" id="5ec8d6b2-6a4e-4624-a4ae-454369140506" name="Changes" comment="Переписана основа проекта: BaseParser (абстрактный класс для всех парсеров), GIS2Parser (для 2ГИС) и main.py (управление запуском).&#10;&#10;&#10;BaseParser определяет общие методы (поиск URL, парсинг деталей, агрегация) и вспомогательные функции (работа с датами, доменами).&#10;GIS2Parser наследуется от BaseParser, готовится к парсингу 2ГИС.&#10;main.py настраивает Selenium WebDriver, передает данные пользователя (company_name, company_site) в парсер и вызывает его.&#10;Включена базовая обработка ошибок и управление драйвером.&#10;TODO: Требуется исследование DOM 2ГИС для точных CSS-селекторов и реализация search_company_urls и parse_card_details в GIS2Parser.">
       <change afterPath="$PROJECT_DIR$/proxies.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/parsers/gis2_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scraper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/date_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/report_generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsers/base_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsers/base_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsers/yandex_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsers/yandex_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsers/gis2_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsers/gis2_parser.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +88,7 @@
       <workItem from="1761198583499" duration="6831000" />
       <workItem from="1761208182542" duration="8406000" />
       <workItem from="1761221040234" duration="10493000" />
-      <workItem from="1761232948038" duration="5957000" />
+      <workItem from="1761232948038" duration="17280000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project setup and base parser class">
       <option name="closed" value="true" />
@@ -123,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761224193015</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Переписана основа проекта: BaseParser (абстрактный класс для всех парсеров), GIS2Parser (для 2ГИС) и main.py (управление запуском).&#10;&#10;&#10;BaseParser определяет общие методы (поиск URL, парсинг деталей, агрегация) и вспомогательные функции (работа с датами, доменами).&#10;GIS2Parser наследуется от BaseParser, готовится к парсингу 2ГИС.&#10;main.py настраивает Selenium WebDriver, передает данные пользователя (company_name, company_site) в парсер и вызывает его.&#10;Включена базовая обработка ошибок и управление драйвером.&#10;TODO: Требуется исследование DOM 2ГИС для точных CSS-селекторов и реализация search_company_urls и parse_card_details в GIS2Parser.">
+      <option name="closed" value="true" />
+      <created>1761285990522</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1761285990522</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +132,7 @@
     <MESSAGE value="Initial project setup and base parser class" />
     <MESSAGE value="Исправлено: поправил инициализацию и настройку драйвера в классе YandexParser, добавил вывод HTML для отладки. Приступаю к анализу html страницы поиска" />
     <MESSAGE value="Промежуточная настройка Selenium. Изменение фильтрации ссылок для парсинга." />
-    <option name="LAST_COMMIT_MESSAGE" value="Промежуточная настройка Selenium. Изменение фильтрации ссылок для парсинга." />
+    <MESSAGE value="Переписана основа проекта: BaseParser (абстрактный класс для всех парсеров), GIS2Parser (для 2ГИС) и main.py (управление запуском).&#10;&#10;&#10;BaseParser определяет общие методы (поиск URL, парсинг деталей, агрегация) и вспомогательные функции (работа с датами, доменами).&#10;GIS2Parser наследуется от BaseParser, готовится к парсингу 2ГИС.&#10;main.py настраивает Selenium WebDriver, передает данные пользователя (company_name, company_site) в парсер и вызывает его.&#10;Включена базовая обработка ошибок и управление драйвером.&#10;TODO: Требуется исследование DOM 2ГИС для точных CSS-селекторов и реализация search_company_urls и parse_card_details в GIS2Parser." />
+    <option name="LAST_COMMIT_MESSAGE" value="Переписана основа проекта: BaseParser (абстрактный класс для всех парсеров), GIS2Parser (для 2ГИС) и main.py (управление запуском).&#10;&#10;&#10;BaseParser определяет общие методы (поиск URL, парсинг деталей, агрегация) и вспомогательные функции (работа с датами, доменами).&#10;GIS2Parser наследуется от BaseParser, готовится к парсингу 2ГИС.&#10;main.py настраивает Selenium WebDriver, передает данные пользователя (company_name, company_site) в парсер и вызывает его.&#10;Включена базовая обработка ошибок и управление драйвером.&#10;TODO: Требуется исследование DOM 2ГИС для точных CSS-селекторов и реализация search_company_urls и parse_card_details в GIS2Parser." />
   </component>
 </project>
